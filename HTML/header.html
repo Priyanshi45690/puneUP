@@ -1,0 +1,71 @@
+<!-- Reusable Navigation Header Component for PuneUP -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Brand Logo -->
+            <a href="../index.html" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-house-chimney text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold tracking-tight text-slate-900">Pune<span class="text-brand-600">UP</span></span>
+                    <span class="block text-[10px] tracking-wider uppercase font-semibold text-slate-400 -mt-1">Real Estate Hub</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+                <a href="../index.html" class="hover:text-brand-600 transition-colors">Home</a>
+                <a href="properties.html" class="hover:text-brand-600 transition-colors">Properties</a>
+                <a href="localities.html" class="hover:text-brand-600 transition-colors">Pune Localities</a>
+                <a href="agents.html" class="hover:text-brand-600 transition-colors">Agents</a>
+                <a href="emi-calculator.html" class="hover:text-brand-600 transition-colors">EMI Calc</a>
+                <a href="pricing.html" class="hover:text-brand-600 transition-colors">Packages</a>
+                <a href="contact.html" class="hover:text-brand-600 transition-colors">Helpdesk</a>
+            </nav>
+
+            <!-- Actions: Wishlist, Sign in & Post Property -->
+            <div class="flex items-center gap-3">
+                <button id="wishlistBtn" class="relative p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-brand-600 hover:border-brand-500 transition-colors" title="Saved Properties">
+                    <i class="fa-regular fa-heart text-lg"></i>
+                    <span id="wishlistBadge" class="absolute -top-1 -right-1 bg-brand-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+                </button>
+
+                <button onclick="openModal('loginModal')" class="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-brand-600 px-3 py-2 transition-colors">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+
+                <a href="post-property.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-md shadow-brand-600/20 active:scale-95 transition-all">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <span>Post Property</span>
+                    <span class="hidden sm:inline-block text-[11px] bg-white/20 px-1.5 py-0.5 rounded font-normal">Free</span>
+                </a>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-600">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3">
+        <a href="../index.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Home</a>
+        <a href="properties.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Properties in Pune</a>
+        <a href="localities.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Pune Localities</a>
+        <a href="agents.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">MahaRERA Agents</a>
+        <a href="emi-calculator.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Home Loan EMI Calculator</a>
+        <a href="pricing.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Seller Packages</a>
+        <a href="contact.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Helpdesk & Contact</a>
+        <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+            <button onclick="openModal('loginModal')" class="text-sm font-semibold text-slate-700 hover:text-brand-600">
+                <i class="fa-regular fa-user mr-1"></i> Sign In
+            </button>
+            <a href="post-property.html" class="text-sm font-bold text-brand-600">
+                + Post Property Free
+            </a>
+        </div>
+    </div>
+</header>

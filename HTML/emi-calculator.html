@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pune Home Loan EMI Calculator | Compare Bank Rates & Eligibility</title>
+    <meta name="description" content="Calculate your monthly home loan EMI with latest SBI, HDFC, and ICICI bank interest rates in Pune. Includes loan eligibility checker & stamp duty guide.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            emerald: '#27ae60',
+                            dark: '#0f172a',
+                            navy: '#0f172a',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="../index.html" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-house-chimney text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Pune<span class="text-brand-600">UP</span></span>
+                        <span class="block text-[10px] tracking-wider uppercase font-semibold text-slate-400 -mt-1">Real Estate Hub</span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+                    <a href="../index.html" class="hover:text-brand-600 transition-colors">Home</a>
+                    <a href="properties.html" class="hover:text-brand-600 transition-colors">Properties</a>
+                    <a href="localities.html" class="hover:text-brand-600 transition-colors">Pune Localities</a>
+                    <a href="agents.html" class="hover:text-brand-600 transition-colors">Agents</a>
+                    <a href="emi-calculator.html" class="text-brand-600 transition-colors">EMI Calc</a>
+                    <a href="pricing.html" class="hover:text-brand-600 transition-colors">Packages</a>
+                    <a href="contact.html" class="hover:text-brand-600 transition-colors">Helpdesk</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="wishlistBtn" class="relative p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-brand-600 hover:border-brand-500 transition-colors">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlistBadge" class="absolute -top-1 -right-1 bg-brand-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+                    </button>
+                    <a href="post-property.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-md shadow-brand-600/20 active:scale-95 transition-all">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <span>Post Property</span>
+                    </a>
+                    <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-600">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3">
+            <a href="../index.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Home</a>
+            <a href="properties.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Properties</a>
+            <a href="localities.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Pune Localities</a>
+            <a href="agents.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Agents</a>
+            <a href="emi-calculator.html" class="block text-sm font-semibold text-brand-600 py-1">EMI Calculator</a>
+            <a href="pricing.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Packages</a>
+            <a href="contact.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Helpdesk</a>
+        </div>
+    </header>
+
+    <main class="py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-xs text-slate-500 mb-6 gap-2 items-center">
+                <a href="../index.html" class="hover:text-brand-600">Home</a>
+                <span>/</span>
+                <span class="text-slate-900 font-semibold">Home Loan EMI Calculator</span>
+            </nav>
+
+            <!-- Page Title -->
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Financial Planning Center</span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-1">Pune Home Loan EMI Calculator</h1>
+                <p class="text-sm sm:text-base text-slate-500 mt-2">Accurately calculate monthly installments, interest breakdown, and check loan eligibility with prevailing Pune banking rates.</p>
+            </div>
+
+            <!-- Master Calculator Grid -->
+            <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-16">
+                
+                <!-- Left Sliders Section (7 Cols) -->
+                <div class="lg:col-span-7 space-y-7">
+                    
+                    <!-- Quick Bank Rate Picker -->
+                    <div>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Compare Bank Partner Rates (Pune)</span>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <button onclick="setBankRate(8.35, 'Bank of Maharashtra')" class="p-2.5 rounded-xl border border-slate-200 hover:border-brand-500 bg-slate-50 text-left transition-colors">
+                                <span class="block text-[11px] font-bold text-slate-600">Bank of Maha</span>
+                                <span class="text-xs font-extrabold text-brand-600">8.35% p.a.</span>
+                            </button>
+                            <button onclick="setBankRate(8.40, 'SBI Home Loans')" class="p-2.5 rounded-xl border border-slate-200 hover:border-brand-500 bg-slate-50 text-left transition-colors">
+                                <span class="block text-[11px] font-bold text-slate-600">SBI Regular</span>
+                                <span class="text-xs font-extrabold text-brand-600">8.40% p.a.</span>
+                            </button>
+                            <button onclick="setBankRate(8.50, 'HDFC Bank')" class="p-2.5 rounded-xl border border-slate-200 hover:border-brand-500 bg-slate-50 text-left transition-colors">
+                                <span class="block text-[11px] font-bold text-slate-600">HDFC Bank</span>
+                                <span class="text-xs font-extrabold text-brand-600">8.50% p.a.</span>
+                            </button>
+                            <button onclick="setBankRate(8.60, 'ICICI Bank')" class="p-2.5 rounded-xl border border-slate-200 hover:border-brand-500 bg-slate-50 text-left transition-colors">
+                                <span class="block text-[11px] font-bold text-slate-600">ICICI Bank</span>
+                                <span class="text-xs font-extrabold text-brand-600">8.60% p.a.</span>
+                            </button>
+                            <button onclick="setBankRate(8.75, 'Axis Bank')" class="p-2.5 rounded-xl border border-slate-200 hover:border-brand-500 bg-slate-50 text-left transition-colors">
+                                <span class="block text-[11px] font-bold text-slate-600">Axis Bank</span>
+                                <span class="text-xs font-extrabold text-brand-600">8.75% p.a.</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Slider 1: Loan Amount -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-slate-700">Home Loan Amount</span>
+                            <span id="displayLoanAmount" class="text-sm font-extrabold text-brand-700 bg-brand-50 px-3.5 py-1 rounded-xl border border-brand-200">₹75,00,000</span>
+                        </div>
+                        <input id="sliderAmount" type="range" min="1000000" max="30000000" step="100000" value="7500000" class="w-full accent-brand-600 h-2.5 bg-slate-200 rounded-lg cursor-pointer">
+                        <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+                            <span>₹10 Lakh</span>
+                            <span>₹1 Crore</span>
+                            <span>₹2 Crore</span>
+                            <span>₹3 Crore</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2: Interest Rate -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-slate-700">Annual Interest Rate (% p.a.)</span>
+                            <span id="displayRate" class="text-sm font-extrabold text-brand-700 bg-brand-50 px-3.5 py-1 rounded-xl border border-brand-200">8.45 %</span>
+                        </div>
+                        <input id="sliderRate" type="range" min="6.5" max="14.0" step="0.05" value="8.45" class="w-full accent-brand-600 h-2.5 bg-slate-200 rounded-lg cursor-pointer">
+                        <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+                            <span>6.5%</span>
+                            <span>9.0%</span>
+                            <span>11.5%</span>
+                            <span>14.0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 3: Loan Tenure -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-slate-700">Loan Tenure (Years)</span>
+                            <span id="displayTenure" class="text-sm font-extrabold text-brand-700 bg-brand-50 px-3.5 py-1 rounded-xl border border-brand-200">20 Years (240 Mos)</span>
+                        </div>
+                        <input id="sliderTenure" type="range" min="5" max="30" step="1" value="20" class="w-full accent-brand-600 h-2.5 bg-slate-200 rounded-lg cursor-pointer">
+                        <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+                            <span>5 Years</span>
+                            <span>15 Years</span>
+                            <span>25 Years</span>
+                            <span>30 Years</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Output Card (5 Cols) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-950 p-6 sm:p-8 rounded-3xl text-white shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Calculated Monthly EMI</span>
+                        <div id="displayEMI" class="text-3xl sm:text-4xl font-extrabold text-brand-400 my-3">₹64,834</div>
+
+                        <!-- Progress Bar Visual Breakdown -->
+                        <div class="my-6">
+                            <div class="flex justify-between text-xs mb-1.5 font-semibold">
+                                <span class="text-emerald-400">Principal: <span id="labelPrincipalPct">48%</span></span>
+                                <span class="text-amber-400">Interest: <span id="labelInterestPct">52%</span></span>
+                            </div>
+                            <div class="h-3 w-full bg-slate-800 rounded-full overflow-hidden flex">
+                                <div id="barPrincipal" class="bg-brand-500 h-full transition-all duration-300" style="width: 48%;"></div>
+                                <div id="barInterest" class="bg-amber-500 h-full transition-all duration-300" style="width: 52%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Summary Rows -->
+                        <div class="space-y-3 pt-4 border-t border-slate-800 text-xs text-slate-300">
+                            <div class="flex justify-between">
+                                <span>Principal Borrowed:</span>
+                                <span id="summaryPrincipal" class="font-bold text-white">₹75,00,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Total Interest Payable:</span>
+                                <span id="summaryInterest" class="font-bold text-amber-400">₹80,60,160</span>
+                            </div>
+                            <div class="flex justify-between text-sm font-bold pt-2 border-t border-slate-800">
+                                <span>Total Payment (P + I):</span>
+                                <span id="summaryTotal" class="text-white">₹1,55,60,160</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <button onclick="showToast('Application sent to Pune Home Loan Desks: SBI, HDFC, ICICI', 'success')" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-brand-500/25">
+                            Apply for Pre-Approved Home Loan
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Additional Financial Tools: Eligibility Checker & Stamp Duty Guide -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                
+                <!-- Tool 1: Loan Eligibility Calculator -->
+                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Income Assessment</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Pune Home Loan Eligibility Checker</h3>
+                        <p class="text-xs text-slate-500 mt-1">Estimate maximum home loan amount banks will sanction based on net monthly salary.</p>
+                    </div>
+
+                    <form id="eligibilityForm" class="space-y-4">
+                        <div>
+                            <label for="monthlyIncome" class="block text-xs font-bold text-slate-700 uppercase mb-1">Net Monthly Salary / Income (INR)</label>
+                            <input id="monthlyIncome" type="number" required placeholder="e.g. 120000" class="w-full text-xs p-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <div>
+                            <label for="monthlyObligations" class="block text-xs font-bold text-slate-700 uppercase mb-1">Existing Monthly EMIs / Liabilities (INR)</label>
+                            <input id="monthlyObligations" type="number" value="0" placeholder="e.g. 15000" class="w-full text-xs p-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all">
+                            Check Maximum Eligible Loan
+                        </button>
+                    </form>
+
+                    <div id="eligibilityResult" class="hidden p-5 rounded-2xl bg-brand-50 border border-brand-200 text-center space-y-2">
+                        <span class="text-xs uppercase font-bold text-brand-700">Estimated Loan Eligibility</span>
+                        <div id="eligibleAmountDisplay" class="text-3xl font-extrabold text-brand-700">₹69,00,000</div>
+                        <p class="text-xs text-slate-600">Max Affordability EMI: <strong id="eligibleEmiDisplay">₹60,000 /mo</strong> (assuming 50% FOIR cap)</p>
+                    </div>
+                </div>
+
+                <!-- Tool 2: PMC Stamp Duty & Ready Reckoner 2026 Guide -->
+                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Maharashtra Government Rules</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Pune Stamp Duty & Registration Guide</h3>
+                        <p class="text-xs text-slate-500 mt-1">Standard registration charges applicable across PMC & PCMC municipal corporations.</p>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-slate-600">
+                        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                            <span class="font-bold text-slate-800">Stamp Duty (Male / General)</span>
+                            <span class="font-extrabold text-brand-600">6% (5% + 1% Metro Cess)</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                            <span class="font-bold text-slate-800">Stamp Duty (Female Buyer)</span>
+                            <span class="font-extrabold text-brand-600">5% (1% Concession)</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                            <span class="font-bold text-slate-800">Registration Fee (Above ₹30 Lakh)</span>
+                            <span class="font-extrabold text-slate-900">₹30,000 Flat</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                            <span class="font-bold text-slate-800">Registration Fee (Below ₹30 Lakh)</span>
+                            <span class="font-extrabold text-slate-900">1% of Agreement Value</span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-100 text-xs text-slate-500 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-info text-brand-600 text-lg"></i>
+                        <span>Need assistance at Pune Sub-Registrar Office? Our Senapati Bapat Road desk offers full legal escorts.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-950 text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-house-chimney text-xs"></i>
+                    </div>
+                    <span class="text-lg font-extrabold text-white">Pune<span class="text-brand-500">UP</span></span>
+                </div>
+                <p class="text-slate-500 text-xs">© 2026 PuneUP Real Estate Ltd. MahaRERA Compliant. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700 max-w-sm text-xs pointer-events-none">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-brand-500 text-base"></i>
+        <span id="toastMessage" class="font-medium">Notification message</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../JS/data.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/calculator.js"></script>
+</body>
+</html>

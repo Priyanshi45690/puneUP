@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuneUP | Pune's Premier Real Estate Marketplace & Property Portal</title>
+    <meta name="description" content="Discover verified apartments, luxury villas, penthouses, and IT rentals across Baner, Koregaon Park, Hinjawadi, Kharadi, and Viman Nagar in Pune.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            emerald: '#27ae60',
+                            dark: '#0f172a',
+                            navy: '#0f172a',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-house-chimney text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Pune<span class="text-brand-600">UP</span></span>
+                        <span class="block text-[10px] tracking-wider uppercase font-semibold text-slate-400 -mt-1">Real Estate Hub</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+                    <a href="index.html" class="text-brand-600 transition-colors">Home</a>
+                    <a href="HTML/properties.html" class="hover:text-brand-600 transition-colors">Properties</a>
+                    <a href="HTML/localities.html" class="hover:text-brand-600 transition-colors">Pune Localities</a>
+                    <a href="HTML/agents.html" class="hover:text-brand-600 transition-colors">Agents</a>
+                    <a href="HTML/emi-calculator.html" class="hover:text-brand-600 transition-colors">EMI Calc</a>
+                    <a href="HTML/pricing.html" class="hover:text-brand-600 transition-colors">Packages</a>
+                    <a href="HTML/contact.html" class="hover:text-brand-600 transition-colors">Helpdesk</a>
+                </nav>
+
+                <!-- Actions: Wishlist, Sign in & Post Property -->
+                <div class="flex items-center gap-3">
+                    <button id="wishlistBtn" class="relative p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-brand-600 hover:border-brand-500 transition-colors" title="Shortlisted Properties">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlistBadge" class="absolute -top-1 -right-1 bg-brand-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+                    </button>
+
+                    <button onclick="openModal('loginModal')" class="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-brand-600 px-3 py-2 transition-colors">
+                        <i class="fa-regular fa-user"></i>
+                        <span>Sign In</span>
+                    </button>
+
+                    <a href="HTML/post-property.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-md shadow-brand-600/20 active:scale-95 transition-all">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <span>Post Property</span>
+                        <span class="hidden xl:inline-block text-[11px] bg-white/20 px-1.5 py-0.5 rounded font-normal">Free</span>
+                    </a>
+
+                    <!-- Mobile Menu Toggle Button -->
+                    <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-600">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3">
+            <a href="index.html" class="block text-sm font-semibold text-brand-600 py-1">Home</a>
+            <a href="HTML/properties.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Properties in Pune</a>
+            <a href="HTML/localities.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Explore Localities</a>
+            <a href="HTML/agents.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Pune MahaRERA Agents</a>
+            <a href="HTML/emi-calculator.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Home Loan Calculator</a>
+            <a href="HTML/pricing.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Pricing Packages</a>
+            <a href="HTML/contact.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Contact Helpdesk</a>
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                <button onclick="openModal('loginModal')" class="text-sm font-semibold text-slate-700 hover:text-brand-600">
+                    <i class="fa-regular fa-user mr-1"></i> Sign In
+                </button>
+                <a href="HTML/post-property.html" class="text-sm font-bold text-brand-600">
+                    + Post Property Free
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Luxury Cinematic Hero Section -->
+        <section id="hero" class="hero-bg relative min-h-[640px] lg:min-h-[720px] flex items-center justify-center py-24 px-4 sm:px-6 overflow-hidden">
+            <!-- Radial ambient glow spheres -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[380px] bg-emerald-500/15 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="absolute bottom-10 left-10 w-72 h-72 bg-teal-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="absolute top-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-[110px] pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-5xl mx-auto text-center space-y-7">
+                
+                <!-- Live MahaRERA Trust Badge -->
+                <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-900/80 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-xl shadow-xl shadow-black/40">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span>#1 MahaRERA Certified Real Estate Marketplace in Pune</span>
+                    <span class="text-slate-500 hidden sm:inline">•</span>
+                    <span class="text-amber-300 font-bold hidden sm:inline-flex items-center gap-1">
+                        <i class="fa-solid fa-star text-xs"></i> 4.9/5 (15k+ Reviews)
+                    </span>
+                </div>
+                
+                <!-- Hero Main Headline -->
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] max-w-4xl mx-auto drop-shadow-md">
+                    Find Your Dream Home in <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">Prime Pune</span>
+                </h1>
+                
+                <!-- Hero Subtitle with High Contrast -->
+                <p class="text-slate-200 text-sm sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-sm">
+                    Verified luxury apartments, private villas, and IT rentals with 100% legal title clearance across Baner, Koregaon Park, Kharadi & Hinjawadi.
+                </p>
+
+                <!-- Segmented Tabs for Hero Search -->
+                <div class="pt-2 flex items-center justify-center gap-2">
+                    <button type="button" onclick="setTabFilter('Sale')" class="tab-btn px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-900 shadow-xl transition-all flex items-center gap-2 active" data-tab="Sale">
+                        <i class="fa-solid fa-house-chimney text-brand-600"></i>
+                        <span>Buy Property</span>
+                    </button>
+                    <button type="button" onclick="setTabFilter('Rent')" class="tab-btn px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-slate-900/60 hover:bg-slate-900/80 text-white border border-white/15 backdrop-blur-md transition-all flex items-center gap-2" data-tab="Rent">
+                        <i class="fa-solid fa-key text-emerald-400"></i>
+                        <span>Rent Homes</span>
+                    </button>
+                    <button type="button" onclick="filterByCategory('Office')" class="px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-slate-900/60 hover:bg-slate-900/80 text-white border border-white/15 backdrop-blur-md transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase text-teal-400"></i>
+                        <span class="hidden sm:inline">Commercial</span> Space
+                    </button>
+                </div>
+
+                <!-- Floating Glassmorphic Search Bar Container -->
+                <div class="mt-4 bg-white/95 backdrop-blur-2xl p-4 sm:p-5 rounded-3xl shadow-[0_30px_70px_rgba(0,0,0,0.45)] border border-white/60 max-w-4xl mx-auto text-left">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 items-center">
+                        
+                        <!-- Locality Selection -->
+                        <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/20 transition-all">
+                            <label for="searchLocality" class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                <i class="fa-solid fa-location-dot text-brand-600 mr-1"></i> City / Locality
+                            </label>
+                            <select id="searchLocality" class="w-full bg-transparent text-sm font-bold text-slate-800 focus:outline-none cursor-pointer">
+                                <option value="all">All Pune Localities</option>
+                                <option value="Koregaon Park">Koregaon Park</option>
+                                <option value="Baner">Baner & Balewadi</option>
+                                <option value="Hinjawadi">Hinjawadi (IT Park)</option>
+                                <option value="Kharadi">Kharadi (EON Freezone)</option>
+                                <option value="Viman Nagar">Viman Nagar</option>
+                                <option value="Kothrud">Kothrud & Deccan</option>
+                                <option value="Hadapsar">Hadapsar / Magarpatta</option>
+                            </select>
+                        </div>
+
+                        <!-- Property Type -->
+                        <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/20 transition-all">
+                            <label for="searchType" class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                <i class="fa-solid fa-building text-brand-600 mr-1"></i> Property Type
+                            </label>
+                            <select id="searchType" class="w-full bg-transparent text-sm font-bold text-slate-800 focus:outline-none cursor-pointer">
+                                <option value="all">All Property Types</option>
+                                <option value="Apartment">Apartment / High-rise</option>
+                                <option value="Villa">Luxury Villa / Bungalow</option>
+                                <option value="Penthouse">Sky Penthouse</option>
+                                <option value="Studio">Studio / 1 BHK Flat</option>
+                                <option value="Office">Commercial & Office</option>
+                            </select>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/20 transition-all">
+                            <label for="searchPrice" class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                <i class="fa-solid fa-indian-rupee-sign text-brand-600 mr-1"></i> Price Range
+                            </label>
+                            <select id="searchPrice" class="w-full bg-transparent text-sm font-bold text-slate-800 focus:outline-none cursor-pointer">
+                                <option value="all">Any Price Budget</option>
+                                <option value="under-50L">Under ₹50 Lakh</option>
+                                <option value="50L-1Cr">₹50 Lakh - ₹1 Crore</option>
+                                <option value="1Cr-2.5Cr">₹1 Crore - ₹2.5 Crore</option>
+                                <option value="above-2.5Cr">₹2.5 Crore & Above</option>
+                            </select>
+                        </div>
+
+                        <!-- High Impact Search Button -->
+                        <div class="pt-1 sm:pt-0">
+                            <button id="heroSearchBtn" class="w-full h-[58px] rounded-2xl bg-gradient-to-r from-brand-600 via-emerald-600 to-teal-600 hover:from-brand-500 hover:to-teal-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl shadow-brand-600/35 hover:shadow-2xl hover:shadow-brand-500/40 active:scale-[0.98] transition-all">
+                                <i class="fa-solid fa-magnifying-glass text-base"></i>
+                                <span>Search Properties</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Quick Popular Searches Tags -->
+                <div class="pt-2 flex flex-wrap justify-center items-center gap-2 text-xs">
+                    <span class="text-slate-300 font-semibold">Trending Searches:</span>
+                    <a href="HTML/properties.html?locality=Baner" class="px-3.5 py-1.5 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white border border-white/20 backdrop-blur-md transition-all hover:scale-105 flex items-center gap-1.5">
+                        <i class="fa-solid fa-location-dot text-brand-400 text-[10px]"></i> Baner 3 BHK
+                    </a>
+                    <a href="HTML/properties.html?locality=Hinjawadi" class="px-3.5 py-1.5 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white border border-white/20 backdrop-blur-md transition-all hover:scale-105 flex items-center gap-1.5">
+                        <i class="fa-solid fa-laptop-code text-teal-400 text-[10px]"></i> Hinjawadi Rentals
+                    </a>
+                    <a href="HTML/properties.html?locality=Koregaon%20Park" class="px-3.5 py-1.5 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white border border-white/20 backdrop-blur-md transition-all hover:scale-105 flex items-center gap-1.5">
+                        <i class="fa-solid fa-crown text-amber-400 text-[10px]"></i> Koregaon Park Villas
+                    </a>
+                    <a href="HTML/properties.html?type=Penthouse" class="px-3.5 py-1.5 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white border border-white/20 backdrop-blur-md transition-all hover:scale-105 flex items-center gap-1.5">
+                        <i class="fa-solid fa-gem text-purple-400 text-[10px]"></i> Sky Penthouses
+                    </a>
+                </div>
+
+                <!-- Floating Live Trust Metric Pills -->
+                <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-2xl mx-auto text-left">
+                    <div class="p-3.5 rounded-2xl bg-slate-900/70 border border-white/10 backdrop-blur-md flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm font-extrabold text-white">100% MahaRERA</div>
+                            <div class="text-[11px] text-slate-300">Clean legal approvals</div>
+                        </div>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-slate-900/70 border border-white/10 backdrop-blur-md flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-300 flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-handshake-simple"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm font-extrabold text-white">Zero Brokerage</div>
+                            <div class="text-[11px] text-slate-300">Direct owner & builder rates</div>
+                        </div>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-slate-900/70 border border-white/10 backdrop-blur-md flex items-center gap-3 col-span-2 sm:col-span-1">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm font-extrabold text-white">Free Cab Pick-up</div>
+                            <div class="text-[11px] text-slate-300">Guided site walkthroughs</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Featured Property Categories Section -->
+        <section id="featured-types" class="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-xs uppercase font-extrabold text-brand-600 tracking-widest bg-brand-50 px-4 py-1.5 rounded-full border border-brand-200">
+                        Explore Categories
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+                        Browse by Property Classification
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-500 mt-2">
+                        Handcrafted residential and boutique commercial collections tailored for homebuyers & investors
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+                    
+                    <!-- Type 1: Family House / Villa -->
+                    <div onclick="filterByCategory('Villa')" class="group cursor-pointer p-6 rounded-3xl bg-white hover:bg-gradient-to-b hover:from-white hover:to-rose-50/40 border border-slate-200/80 hover:border-rose-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center relative overflow-hidden">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-rose-50 border border-rose-100 text-rose-500 flex items-center justify-center text-2xl group-hover:scale-110 group-hover:rotate-3 transition-transform mb-4 shadow-sm">
+                            <i class="fa-solid fa-house-chimney-window"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-sm sm:text-base group-hover:text-rose-600 transition-colors">Family Villas</h3>
+                        <p class="text-xs text-slate-400 mt-1 font-medium">1,240 Properties</p>
+                        <span class="inline-block mt-3 text-[11px] font-bold text-rose-500 group-hover:translate-x-1 transition-transform">Explore →</span>
+                    </div>
+
+                    <!-- Type 2: House & Villa -->
+                    <div onclick="filterByCategory('Apartment')" class="group cursor-pointer p-6 rounded-3xl bg-white hover:bg-gradient-to-b hover:from-white hover:to-emerald-50/40 border border-slate-200/80 hover:border-brand-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center relative overflow-hidden">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-50 border border-emerald-100 text-brand-600 flex items-center justify-center text-2xl group-hover:scale-110 group-hover:rotate-3 transition-transform mb-4 shadow-sm">
+                            <i class="fa-solid fa-building-wheat"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-sm sm:text-base group-hover:text-brand-600 transition-colors">Flats & Condos</h3>
+                        <p class="text-xs text-slate-400 mt-1 font-medium">4,820 Properties</p>
+                        <span class="inline-block mt-3 text-[11px] font-bold text-brand-600 group-hover:translate-x-1 transition-transform">Explore →</span>
+                    </div>
+
+                    <!-- Type 3: Apartment -->
+                    <div onclick="filterByCategory('Penthouse')" class="group cursor-pointer p-6 rounded-3xl bg-white hover:bg-gradient-to-b hover:from-white hover:to-amber-50/40 border border-slate-200/80 hover:border-amber-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center relative overflow-hidden">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-50 border border-amber-100 text-amber-500 flex items-center justify-center text-2xl group-hover:scale-110 group-hover:rotate-3 transition-transform mb-4 shadow-sm">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-sm sm:text-base group-hover:text-amber-600 transition-colors">Sky Penthouses</h3>
+                        <p class="text-xs text-slate-400 mt-1 font-medium">540 Properties</p>
+                        <span class="inline-block mt-3 text-[11px] font-bold text-amber-500 group-hover:translate-x-1 transition-transform">Explore →</span>
+                    </div>
+
+                    <!-- Type 4: Office & Studio -->
+                    <div onclick="filterByCategory('Studio')" class="group cursor-pointer p-6 rounded-3xl bg-white hover:bg-gradient-to-b hover:from-white hover:to-purple-50/40 border border-slate-200/80 hover:border-purple-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center relative overflow-hidden">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-50 border border-purple-100 text-purple-500 flex items-center justify-center text-2xl group-hover:scale-110 group-hover:rotate-3 transition-transform mb-4 shadow-sm">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-sm sm:text-base group-hover:text-purple-600 transition-colors">Studio & Tech 1BHK</h3>
+                        <p class="text-xs text-slate-400 mt-1 font-medium">2,180 Properties</p>
+                        <span class="inline-block mt-3 text-[11px] font-bold text-purple-500 group-hover:translate-x-1 transition-transform">Explore →</span>
+                    </div>
+
+                    <!-- Type 5: Commercial -->
+                    <div onclick="filterByCategory('Office')" class="group cursor-pointer p-6 rounded-3xl bg-white hover:bg-gradient-to-b hover:from-white hover:to-blue-50/40 border border-slate-200/80 hover:border-blue-400 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center relative overflow-hidden col-span-2 sm:col-span-1">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 border border-blue-100 text-blue-500 flex items-center justify-center text-2xl group-hover:scale-110 group-hover:rotate-3 transition-transform mb-4 shadow-sm">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-sm sm:text-base group-hover:text-blue-600 transition-colors">Commercial Space</h3>
+                        <p class="text-xs text-slate-400 mt-1 font-medium">870 Properties</p>
+                        <span class="inline-block mt-3 text-[11px] font-bold text-blue-500 group-hover:translate-x-1 transition-transform">Explore →</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Grid Section -->
+        <section id="properties-section" class="py-16 sm:py-20 bg-slate-50/70 border-t border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Handpicked Selection</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">Recent Properties Listed in Pune</h2>
+                        <p class="text-sm sm:text-base text-slate-500 mt-1">MahaRERA verified residential properties with clear legal approvals</p>
+                    </div>
+
+                    <!-- Filter pills -->
+                    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+                        <button onclick="setTabFilter('all')" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-600 text-white shadow-sm transition-all" data-tab="all">
+                            All Listings
+                        </button>
+                        <button onclick="setTabFilter('Sale')" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all" data-tab="Sale">
+                            For Sale
+                        </button>
+                        <button onclick="setTabFilter('Rent')" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all" data-tab="Rent">
+                            For Rent
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Properties Grid Container (Populated via JS/properties.js) -->
+                <div id="propertiesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- Populated dynamically via JavaScript -->
+                </div>
+
+                <div class="text-center mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="resetPropertyFilters()" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm shadow-sm transition-all">
+                        <i class="fa-solid fa-arrows-rotate text-brand-600"></i>
+                        <span>Reset Filters</span>
+                    </button>
+                    <a href="HTML/properties.html" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-lg shadow-brand-600/25 transition-all">
+                        <span>Explore All 1,800+ Properties</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Track Record Counters Section -->
+        <section class="py-16 sm:py-20 bg-slate-900 text-white relative overflow-hidden">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-xs uppercase font-bold text-brand-400 tracking-wider">Our Pune Track Record</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1">
+                        Over 40,000+ Happy Pune Homeowners With Our Trusted Network
+                    </h2>
+                </div>
+
+                <!-- 4 Counter Metric Blocks -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+                    
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-white/10 flex items-center justify-center text-brand-400 text-xl mb-4">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">32 M+</div>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Square Feet Delivered</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-white/10 flex items-center justify-center text-brand-400 text-xl mb-4">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">₹4,300 Cr+</div>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Property Value Traded</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-white/10 flex items-center justify-center text-brand-400 text-xl mb-4">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">51 M+</div>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Searches & Inquiries</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-white/10 flex items-center justify-center text-brand-400 text-xl mb-4">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">42 K+</div>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Families Shifted In</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Localities Section -->
+        <section id="locations" class="py-16 sm:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Neighborhood Guide</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">Explore Pune by Locality</h2>
+                        <p class="text-sm sm:text-base text-slate-500 mt-1">Discover prime residential pockets, IT corridors & luxury enclaves</p>
+                    </div>
+                    <a href="HTML/localities.html" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-600 hover:text-brand-700">
+                        <span>View All Locality Guides</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 6 Location Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Locality 1: Koregaon Park -->
+                    <div onclick="window.location.href='HTML/localities.html#koregaon-park'" class="group relative h-64 rounded-3xl overflow-hidden cursor-pointer shadow-md card-hover-effect">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Koregaon Park Pune" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Heritage & Luxury</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">Koregaon Park</h3>
+                            <p class="text-xs text-slate-300 mt-1">120 Villas • 340 Luxury Apartments</p>
+                        </div>
+                    </div>
+
+                    <!-- Locality 2: Baner & Balewadi -->
+                    <div onclick="window.location.href='HTML/localities.html#baner'" class="group relative h-64 rounded-3xl overflow-hidden cursor-pointer shadow-md card-hover-effect">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Baner Pune" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Modern Urban Lifestyle</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">Baner & Balewadi</h3>
+                            <p class="text-xs text-slate-300 mt-1">680 High-rises • 140 Commercial Spaces</p>
+                        </div>
+                    </div>
+
+                    <!-- Locality 3: Hinjawadi -->
+                    <div onclick="window.location.href='HTML/localities.html#hinjawadi'" class="group relative h-64 rounded-3xl overflow-hidden cursor-pointer shadow-md card-hover-effect">
+                        <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="Hinjawadi IT Park" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Rajiv Gandhi IT Park</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">Hinjawadi</h3>
+                            <p class="text-xs text-slate-300 mt-1">1,450 Tech Rental Homes • Gated Townships</p>
+                        </div>
+                    </div>
+
+                    <!-- Locality 4: Kharadi -->
+                    <div onclick="window.location.href='HTML/localities.html#kharadi'" class="group relative h-64 rounded-3xl overflow-hidden cursor-pointer shadow-md card-hover-effect">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Kharadi Pune" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">EON Free Zone & WTC</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">Kharadi</h3>
+                            <p class="text-xs text-slate-300 mt-1">820 Smart Condos • 95 Penthouses</p>
+                        </div>
+                    </div>
+
+                    <!-- Locality 5: Viman Nagar -->
+                    <div onclick="window.location.href='HTML/localities.html#viman-nagar'" class="group relative h-64 rounded-3xl overflow-hidden cursor-pointer shadow-md card-hover-effect">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Viman Nagar Pune" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Airport & Mall Corridor</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">Viman Nagar</h3>
+                            <p class="text-xs text-slate-300 mt-1">510 Apartments • 110 Studio Pads</p>
+                        </div>
+                    </div>
+
+                    <!-- Locality 6: Kothrud & Deccan -->
+                    <div onclick="window.location.href='HTML/localities.html#kothrud'" class="group relative h-64 rounded-3xl overflow-hidden cursor-pointer shadow-md card-hover-effect">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Kothrud Pune" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Cultural Heart & Metro</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">Kothrud & Deccan</h3>
+                            <p class="text-xs text-slate-300 mt-1">390 Redevelopment Flats • Row Houses</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured MahaRERA Agents Preview -->
+        <section id="agents" class="py-16 sm:py-20 bg-slate-50/70 border-t border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Certified Brokers</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">Our Featured MahaRERA Agents</h2>
+                        <p class="text-sm sm:text-base text-slate-500 mt-1">Directly speak with licensed consultants with zero duplicate listings</p>
+                    </div>
+                    <a href="HTML/agents.html" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-600 hover:text-brand-700">
+                        <span>Meet All Certified Brokers</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- 3 Featured Agents Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    
+                    <!-- Agent 1 -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-lg transition-all text-center relative card-hover-effect">
+                        <span class="absolute top-5 left-5 text-[11px] font-bold bg-amber-500 text-white px-2.5 py-0.5 rounded-full">50+ Deals</span>
+                        
+                        <div class="relative w-24 h-24 mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Priya Kulkarni" class="w-full h-full object-cover rounded-full border-4 border-slate-50 shadow-inner">
+                            <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full flex items-center justify-center text-[10px] text-white" title="MahaRERA Verified">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                        </div>
+
+                        <span class="text-xs font-semibold text-slate-400 block"><i class="fa-solid fa-location-dot text-brand-600 mr-1"></i>Koregaon Park</span>
+                        <h3 class="text-lg font-bold text-slate-800 mt-1">Priya Kulkarni</h3>
+                        <p class="text-xs text-brand-600 font-semibold mb-4">Luxury Portfolio Director</p>
+
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <button onclick="contactAgent('Priya Kulkarni')" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                            </button>
+                            <button onclick="callAgent('+91 98230 45210')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Agent 2 -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-lg transition-all text-center relative card-hover-effect">
+                        <span class="absolute top-5 left-5 text-[11px] font-bold bg-amber-500 text-white px-2.5 py-0.5 rounded-full">70+ Deals</span>
+                        
+                        <div class="relative w-24 h-24 mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Rohit Deshmukh" class="w-full h-full object-cover rounded-full border-4 border-slate-50 shadow-inner">
+                            <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full flex items-center justify-center text-[10px] text-white">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                        </div>
+
+                        <span class="text-xs font-semibold text-slate-400 block"><i class="fa-solid fa-location-dot text-brand-600 mr-1"></i>Baner & Balewadi</span>
+                        <h3 class="text-lg font-bold text-slate-800 mt-1">Rohit Deshmukh</h3>
+                        <p class="text-xs text-brand-600 font-semibold mb-4">Residential Lead</p>
+
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <button onclick="contactAgent('Rohit Deshmukh')" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                            </button>
+                            <button onclick="callAgent('+91 98500 12845')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Agent 3 -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-lg transition-all text-center relative card-hover-effect">
+                        <span class="absolute top-5 left-5 text-[11px] font-bold bg-amber-500 text-white px-2.5 py-0.5 rounded-full">45+ Deals</span>
+                        
+                        <div class="relative w-24 h-24 mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Tanvi Shinde" class="w-full h-full object-cover rounded-full border-4 border-slate-50 shadow-inner">
+                            <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full flex items-center justify-center text-[10px] text-white">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                        </div>
+
+                        <span class="text-xs font-semibold text-slate-400 block"><i class="fa-solid fa-location-dot text-brand-600 mr-1"></i>Hinjawadi IT Corridor</span>
+                        <h3 class="text-lg font-bold text-slate-800 mt-1">Tanvi Shinde</h3>
+                        <p class="text-xs text-brand-600 font-semibold mb-4">Techie Rental Specialist</p>
+
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <button onclick="contactAgent('Tanvi Shinde')" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                            </button>
+                            <button onclick="callAgent('+91 97632 89012')" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EMI Loan Calculator Section -->
+        <section id="emi-calc" class="py-16 sm:py-20 bg-white border-t border-slate-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-xl mx-auto mb-12">
+                    <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Financial Planning</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">Pune Home Loan EMI Calculator</h2>
+                    <p class="text-sm text-slate-500 mt-1">Estimate your monthly mortgage payments with prevailing Pune bank interest rates</p>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Sliders Side -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Loan Amount -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-semibold text-slate-700">Home Loan Amount</span>
+                                <span id="displayLoanAmount" class="text-sm font-bold text-brand-700 bg-brand-50 px-3 py-1 rounded-lg border border-brand-200">₹75,00,000</span>
+                            </div>
+                            <input id="sliderAmount" type="range" min="1000000" max="30000000" step="100000" value="7500000" class="w-full accent-brand-600 h-2 bg-slate-200 rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+                                <span>₹10 Lakh</span>
+                                <span>₹3 Crore</span>
+                            </div>
+                        </div>
+
+                        <!-- Interest Rate -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-semibold text-slate-700">Interest Rate (% p.a.)</span>
+                                <span id="displayRate" class="text-sm font-bold text-brand-700 bg-brand-50 px-3 py-1 rounded-lg border border-brand-200">8.45 %</span>
+                            </div>
+                            <input id="sliderRate" type="range" min="6.5" max="14.0" step="0.05" value="8.45" class="w-full accent-brand-600 h-2 bg-slate-200 rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+                                <span>6.5%</span>
+                                <span>14.0%</span>
+                            </div>
+                        </div>
+
+                        <!-- Loan Tenure -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-semibold text-slate-700">Loan Tenure</span>
+                                <span id="displayTenure" class="text-sm font-bold text-brand-700 bg-brand-50 px-3 py-1 rounded-lg border border-brand-200">20 Years</span>
+                            </div>
+                            <input id="sliderTenure" type="range" min="5" max="30" step="1" value="20" class="w-full accent-brand-600 h-2 bg-slate-200 rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+                                <span>5 Years</span>
+                                <span>30 Years</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex justify-between items-center">
+                            <a href="HTML/emi-calculator.html" class="text-xs font-bold text-brand-600 hover:underline flex items-center gap-1">
+                                <span>Open Full Loan Center & Eligibility Calculator</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Output Card -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-950 p-6 sm:p-8 rounded-3xl text-white shadow-xl">
+                        <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Estimated Monthly EMI</span>
+                        <div id="displayEMI" class="text-3xl sm:text-4xl font-extrabold text-brand-400 my-2">₹64,834</div>
+                        
+                        <div class="space-y-3 pt-4 border-t border-slate-800 text-xs text-slate-300">
+                            <div class="flex justify-between">
+                                <span>Principal Loan:</span>
+                                <span id="summaryPrincipal" class="font-bold text-white">₹75,00,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Total Interest Payable:</span>
+                                <span id="summaryInterest" class="font-bold text-white">₹80,60,160</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Total Amount (P + I):</span>
+                                <span id="summaryTotal" class="font-bold text-white">₹1,55,60,160</span>
+                            </div>
+                        </div>
+
+                        <button onclick="showToast('Application forwarded to Pune Banking Partners: SBI, HDFC, ICICI', 'success')" class="w-full mt-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-brand-500/25">
+                            Get Pre-Approved Loan
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CTA Questions Banner -->
+        <section class="py-12 bg-gradient-to-r from-brand-600 to-emerald-600 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold">Have Questions About Buying Property in Pune?</h3>
+                    <p class="text-brand-100 text-sm mt-1">Our Senapati Bapat Road desk assists with PMC registry, stamp duty calculator and free site inspections.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="openModal('contactModal')" class="px-8 py-3.5 rounded-full bg-white text-brand-700 hover:bg-slate-100 font-bold text-sm shadow-xl active:scale-95 transition-all">
+                        Contact Us Today
+                    </button>
+                    <a href="HTML/contact.html" class="px-6 py-3.5 rounded-full bg-brand-700/60 hover:bg-brand-700 text-white font-bold text-sm transition-all">
+                        View Office Map
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-950 text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Brand Info & Newsletter -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-house-chimney text-sm"></i>
+                        </div>
+                        <span class="text-xl font-extrabold tracking-tight text-white">Pune<span class="text-brand-500">UP</span></span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Pune's premier property portal delivering verified flats, penthouses, and commercial plots across Western & Eastern Pune corridors.
+                    </p>
+                    
+                    <!-- Newsletter box -->
+                    <div class="pt-2">
+                        <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-2">Subscribe for Pune Real Estate Price Index</label>
+                        <form onsubmit="handleNewsletter(event)" class="flex gap-2 max-w-sm">
+                            <input type="email" required placeholder="Enter your email address" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-brand-500">
+                            <button type="submit" class="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs uppercase tracking-wider transition-colors shrink-0">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Column 1: Localities -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Top Pune Areas</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="HTML/properties.html?locality=Baner" class="hover:text-white transition-colors">Flats in Baner</a></li>
+                        <li><a href="HTML/properties.html?locality=Koregaon%20Park" class="hover:text-white transition-colors">Villas in Koregaon Park</a></li>
+                        <li><a href="HTML/properties.html?locality=Hinjawadi" class="hover:text-white transition-colors">Rentals in Hinjawadi IT Hub</a></li>
+                        <li><a href="HTML/properties.html?locality=Kharadi" class="hover:text-white transition-colors">Apartments in Kharadi</a></li>
+                        <li><a href="HTML/properties.html?locality=Viman%20Nagar" class="hover:text-white transition-colors">Resale in Viman Nagar</a></li>
+                        <li><a href="HTML/properties.html?locality=Kothrud" class="hover:text-white transition-colors">Properties in Kothrud</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Useful Services</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="HTML/emi-calculator.html" class="hover:text-white transition-colors">Pune EMI Calculator</a></li>
+                        <li><a href="HTML/post-property.html" class="hover:text-white transition-colors">Post Property Free</a></li>
+                        <li><a href="HTML/agents.html" class="hover:text-white transition-colors">MahaRERA Brokers</a></li>
+                        <li><a href="HTML/pricing.html" class="hover:text-white transition-colors">Listing Packages</a></li>
+                        <li><a href="javascript:void(0)" onclick="showToast('PMC Property Tax & Ready Reckoner guide loaded', 'info')" class="hover:text-white transition-colors">Ready Reckoner Rates 2026</a></li>
+                        <li><a href="HTML/contact.html" class="hover:text-white transition-colors">Helpdesk & Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Corporate -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Company</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="HTML/contact.html" class="hover:text-white transition-colors">About PuneUP</a></li>
+                        <li><a href="HTML/localities.html" class="hover:text-white transition-colors">Locality Guides</a></li>
+                        <li><a href="HTML/pricing.html" class="hover:text-white transition-colors">Pricing & Plans</a></li>
+                        <li><a href="javascript:void(0)" onclick="showToast('MahaRERA Reg: A52100019842 verified.', 'info')" class="hover:text-white transition-colors">MahaRERA Compliance</a></li>
+                        <li><a href="HTML/contact.html" class="hover:text-white transition-colors">Senapati Bapat Road Office</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Disclaimer & Copyright -->
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500">
+                <p>© 2026 PuneUP Real Estate Ltd. All Rights Reserved. Fully Compliant with MahaRERA Regulations.</p>
+                <div class="flex items-center gap-4 text-slate-400">
+                    <span class="hover:text-white cursor-pointer" onclick="showToast('Connecting to Facebook...', 'info')"><i class="fa-brands fa-facebook"></i></span>
+                    <span class="hover:text-white cursor-pointer" onclick="showToast('Connecting to Instagram...', 'info')"><i class="fa-brands fa-instagram"></i></span>
+                    <span class="hover:text-white cursor-pointer" onclick="showToast('Connecting to Twitter...', 'info')"><i class="fa-brands fa-x-twitter"></i></span>
+                    <span class="hover:text-white cursor-pointer" onclick="showToast('Connecting to LinkedIn...', 'info')"><i class="fa-brands fa-linkedin"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Property Quick Details Modal -->
+    <div id="propertyModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 p-6 sm:p-8 relative">
+            <button onclick="closeModal('propertyModal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-sm transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="propertyModalContent">
+                <!-- Dynamically populated via openPropertyModal(id) -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Property Modal -->
+    <div id="postPropertyModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 p-6 sm:p-8 relative">
+            <button onclick="closeModal('postPropertyModal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-sm transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Post Your Pune Property</h3>
+            <p class="text-xs text-slate-500 mb-6">List for free and get connected directly with genuine tenants and buyers without paying broker fees.</p>
+
+            <form onsubmit="handlePostProperty(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Property Title</label>
+                    <input type="text" required placeholder="e.g. 3 BHK Luxury Apartment at Baner High St" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Pune Locality</label>
+                        <select required class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                            <option value="Baner">Baner / Balewadi</option>
+                            <option value="Koregaon Park">Koregaon Park</option>
+                            <option value="Hinjawadi">Hinjawadi IT Hub</option>
+                            <option value="Kharadi">Kharadi</option>
+                            <option value="Viman Nagar">Viman Nagar</option>
+                            <option value="Wakad">Wakad / Pimple Saudagar</option>
+                            <option value="Kothrud">Kothrud</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Listing Type</label>
+                        <select required class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                            <option value="Sale">For Sale</option>
+                            <option value="Rent">For Rent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Expected Price (INR)</label>
+                        <input type="text" required placeholder="e.g. ₹95 Lakh or ₹35,000/mo" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Carpet Area</label>
+                        <input type="text" required placeholder="e.g. 1,250 sq.ft." class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Mobile / WhatsApp</label>
+                    <input type="tel" required placeholder="+91 98XXX XXXXX" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-600/30 transition-all">
+                    Submit Property For Verification
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Helpdesk Modal -->
+    <div id="contactModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-100 p-6 sm:p-8 relative">
+            <button onclick="closeModal('contactModal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-sm transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Pune Helpdesk</h3>
+            <p class="text-xs text-slate-500 mb-4">Our Senapati Bapat Road team is on standby to assist you.</p>
+
+            <form onsubmit="handleContactSubmit(event)" class="space-y-3">
+                <input type="text" required placeholder="Your Full Name" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                <input type="email" required placeholder="Email Address" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                <input type="tel" required placeholder="Phone Number" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                <textarea rows="3" placeholder="Tell us which locality or budget you are seeking..." class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500"></textarea>
+                <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider transition-colors">
+                    Request Immediate Callback
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div id="loginModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-100 p-6 sm:p-8 relative text-center">
+            <button onclick="closeModal('loginModal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-sm transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl mx-auto mb-3">
+                <i class="fa-solid fa-user-lock"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">Sign in to PuneUP</h3>
+            <p class="text-xs text-slate-500 mb-5">Access your shortlisted properties, verified inquiries, and chat history.</p>
+
+            <form onsubmit="handleLoginSubmit(event)" class="space-y-3 text-left">
+                <input type="email" required placeholder="Email or Phone Number" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                <input type="password" required placeholder="Password" class="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500">
+                <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider transition-colors">
+                    Sign In Securely
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast System -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700 max-w-sm text-xs pointer-events-none">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-brand-500 text-base"></i>
+        <span id="toastMessage" class="font-medium">Notification message</span>
+    </div>
+
+    <!-- Centralized Script Modules -->
+    <script src="JS/data.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/properties.js"></script>
+    <script src="JS/calculator.js"></script>
+</body>
+</html>

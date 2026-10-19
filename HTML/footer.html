@@ -1,0 +1,81 @@
+<!-- Reusable Footer Component for PuneUP -->
+<footer class="bg-slate-950 text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+            
+            <!-- Brand Info & Newsletter -->
+            <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-house-chimney text-sm"></i>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight text-white">Pune<span class="text-brand-500">UP</span></span>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                    Pune's premier property portal delivering verified flats, penthouses, and commercial plots across Western & Eastern Pune corridors.
+                </p>
+                
+                <!-- Newsletter box -->
+                <div class="pt-2">
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-2">Subscribe for Pune Real Estate Price Index</label>
+                    <form onsubmit="handleNewsletter(event)" class="flex gap-2 max-w-sm">
+                        <input type="email" required placeholder="Enter your email address" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-brand-500">
+                        <button type="submit" class="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs uppercase tracking-wider transition-colors shrink-0">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Column 1: Localities -->
+            <div>
+                <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Top Pune Areas</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="properties.html?locality=Baner" class="hover:text-white transition-colors">Flats in Baner</a></li>
+                    <li><a href="properties.html?locality=Koregaon%20Park" class="hover:text-white transition-colors">Villas in Koregaon Park</a></li>
+                    <li><a href="properties.html?locality=Hinjawadi" class="hover:text-white transition-colors">Rentals in Hinjawadi IT Hub</a></li>
+                    <li><a href="properties.html?locality=Kharadi" class="hover:text-white transition-colors">Apartments in Kharadi</a></li>
+                    <li><a href="properties.html?locality=Viman%20Nagar" class="hover:text-white transition-colors">Resale in Viman Nagar</a></li>
+                    <li><a href="properties.html?locality=Kothrud" class="hover:text-white transition-colors">Properties in Kothrud</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+                <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Useful Services</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="emi-calculator.html" class="hover:text-white transition-colors">Pune EMI Calculator</a></li>
+                    <li><a href="post-property.html" class="hover:text-white transition-colors">Post Property Free</a></li>
+                    <li><a href="agents.html" class="hover:text-white transition-colors">MahaRERA Brokers</a></li>
+                    <li><a href="pricing.html" class="hover:text-white transition-colors">Listing Packages</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('PMC Property Tax & Ready Reckoner guide loaded', 'info')" class="hover:text-white transition-colors">Ready Reckoner Rates 2026</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Helpdesk & Support</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Corporate -->
+            <div>
+                <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">Company</h4>
+                <ul class="space-y-2.5">
+                    <li><a href="contact.html" class="hover:text-white transition-colors">About PuneUP</a></li>
+                    <li><a href="localities.html" class="hover:text-white transition-colors">Locality Guides</a></li>
+                    <li><a href="pricing.html" class="hover:text-white transition-colors">Pricing & Plans</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('MahaRERA Registration: A52100019842 verified.', 'info')" class="hover:text-white transition-colors">MahaRERA Compliance</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Senapati Bapat Road Office</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Disclaimer & Copyright -->
+        <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500">
+            <p>© 2026 PuneUP Real Estate Ltd. All Rights Reserved. Fully Compliant with MahaRERA Regulations.</p>
+            <div class="flex items-center gap-4 text-slate-400">
+                <span class="hover:text-white cursor-pointer" onclick="showToast('Connecting to Facebook...', 'info')"><i class="fa-brands fa-facebook"></i></span>
+                <span class="hover:text-white cursor-pointer" onclick="showToast('Connecting to Instagram...', 'info')"><i class="fa-brands fa-instagram"></i></span>
+                <span class="hover:text-white cursor-pointer" onclick="showToast('Connecting to X / Twitter...', 'info')"><i class="fa-brands fa-x-twitter"></i></span>
+                <span class="hover:text-white cursor-pointer" onclick="showToast('Connecting to LinkedIn...', 'info')"><i class="fa-brands fa-linkedin"></i></span>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details | PuneUP Real Estate</title>
+    <meta name="description" content="View verified property details, floor plans, MahaRERA certifications, exclusive amenities, and book a free site inspection in Pune.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            emerald: '#27ae60',
+                            dark: '#0f172a',
+                            navy: '#0f172a',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="../index.html" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-house-chimney text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Pune<span class="text-brand-600">UP</span></span>
+                        <span class="block text-[10px] tracking-wider uppercase font-semibold text-slate-400 -mt-1">Real Estate Hub</span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+                    <a href="../index.html" class="hover:text-brand-600 transition-colors">Home</a>
+                    <a href="properties.html" class="hover:text-brand-600 transition-colors">Properties</a>
+                    <a href="localities.html" class="hover:text-brand-600 transition-colors">Pune Localities</a>
+                    <a href="agents.html" class="hover:text-brand-600 transition-colors">Agents</a>
+                    <a href="emi-calculator.html" class="hover:text-brand-600 transition-colors">EMI Calc</a>
+                    <a href="pricing.html" class="hover:text-brand-600 transition-colors">Packages</a>
+                    <a href="contact.html" class="hover:text-brand-600 transition-colors">Helpdesk</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="wishlistBtn" class="relative p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-brand-600 hover:border-brand-500 transition-colors">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlistBadge" class="absolute -top-1 -right-1 bg-brand-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+                    </button>
+                    <a href="post-property.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-md shadow-brand-600/20 active:scale-95 transition-all">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <span>Post Property</span>
+                    </a>
+                    <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-600">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3">
+            <a href="../index.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Home</a>
+            <a href="properties.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Properties in Pune</a>
+            <a href="localities.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Pune Localities</a>
+            <a href="agents.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Agents</a>
+            <a href="emi-calculator.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">EMI Calculator</a>
+            <a href="pricing.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Packages</a>
+            <a href="contact.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Helpdesk</a>
+        </div>
+    </header>
+
+    <main class="py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-xs text-slate-500 mb-6 gap-2 items-center">
+                <a href="../index.html" class="hover:text-brand-600">Home</a>
+                <span>/</span>
+                <a href="properties.html" class="hover:text-brand-600">Properties</a>
+                <span>/</span>
+                <span id="breadcrumbTitle" class="text-slate-900 font-semibold truncate max-w-xs">Property Overview</span>
+            </nav>
+
+            <div id="propertyDetailsContainer" class="space-y-10">
+                <!-- Dynamically populated via JS -->
+                <div class="py-24 text-center">
+                    <i class="fa-solid fa-spinner fa-spin text-3xl text-brand-600"></i>
+                    <p class="text-sm text-slate-500 mt-2">Loading property information...</p>
+                </div>
+            </div>
+
+            <!-- Nearby / Similar Properties in Pune -->
+            <div class="mt-16 pt-12 border-t border-slate-200">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">Similar Pune Properties</h3>
+                        <p class="text-xs text-slate-500 mt-1">Other high-demand homes in neighboring corridors</p>
+                    </div>
+                    <a href="properties.html" class="text-xs font-bold text-brand-600 hover:underline">View All Properties →</a>
+                </div>
+                <div id="similarPropertiesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-950 text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-house-chimney text-xs"></i>
+                    </div>
+                    <span class="text-lg font-extrabold text-white">Pune<span class="text-brand-500">UP</span></span>
+                </div>
+                <p class="text-slate-500 text-xs">© 2026 PuneUP Real Estate Ltd. MahaRERA Registered. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../JS/data.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/properties.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = parseInt(params.get('id')) || 1;
+            const property = puneProperties.find(p => p.id === id) || puneProperties[0];
+            const agent = puneAgents.find(a => a.id === property.agentId) || puneAgents[0];
+
+            document.title = `${property.title} | PuneUP Real Estate`;
+            const bcTitle = document.getElementById('breadcrumbTitle');
+            if (bcTitle) bcTitle.innerText = property.title;
+
+            const isFav = wishlist.has(property.id);
+            const container = document.getElementById('propertyDetailsContainer');
+
+            container.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Left: Main Gallery & Details (8 Cols) -->
+                    <div class="lg:col-span-8 space-y-8">
+                        
+                        <!-- Header Title, Price & Action -->
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="px-3 py-1 rounded-full text-xs font-bold uppercase ${property.listingType === 'Sale' ? 'bg-brand-600 text-white' : 'bg-amber-500 text-white'}">
+                                        For ${property.listingType}
+                                    </span>
+                                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-800">
+                                        ${property.category}
+                                    </span>
+                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
+                                        <i class="fa-solid fa-certificate text-emerald-600"></i> MahaRERA: ${property.reraId}
+                                    </span>
+                                </div>
+                                <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">${property.title}</h1>
+                                <p class="text-sm text-slate-500 mt-1 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-location-dot text-brand-600"></i> ${property.address}
+                                </p>
+                            </div>
+
+                            <div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center">
+                                <span class="text-xs uppercase font-bold text-slate-400">Total Price</span>
+                                <span class="text-2xl sm:text-3xl font-extrabold text-brand-600">${property.priceDisplay}</span>
+                                <button onclick="toggleWishlist(${property.id})" class="mt-2 text-xs font-semibold px-3 py-1.5 rounded-xl border border-slate-200 hover:border-red-400 text-slate-600 flex items-center gap-1.5 transition-colors">
+                                    <i class="${isFav ? 'fa-solid text-red-500' : 'fa-regular'} fa-heart"></i>
+                                    <span>${isFav ? 'Shortlisted' : 'Save to Shortlist'}</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Gallery Hero -->
+                        <div class="relative h-80 sm:h-[460px] rounded-3xl overflow-hidden bg-slate-900 shadow-xl group">
+                            <img src="${property.image}" alt="${property.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute bottom-4 left-4 bg-slate-950/75 backdrop-blur-md text-white px-4 py-2 rounded-2xl text-xs flex items-center gap-2">
+                                <i class="fa-solid fa-camera"></i> Verified Photos & HD Walkthrough Available
+                            </div>
+                        </div>
+
+                        <!-- Specifications Grid -->
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm">
+                            <h3 class="text-lg font-bold text-slate-900 mb-6">Property Overview & Specifications</h3>
+                            
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+                                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                    <i class="fa-solid fa-bed text-xl text-brand-600 mb-2"></i>
+                                    <span class="block text-[11px] font-bold text-slate-400 uppercase">Configuration</span>
+                                    <span class="text-base font-extrabold text-slate-800">${property.beds > 0 ? property.beds + ' BHK' : 'Studio / Office'}</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                    <i class="fa-solid fa-bath text-xl text-brand-600 mb-2"></i>
+                                    <span class="block text-[11px] font-bold text-slate-400 uppercase">Bathrooms</span>
+                                    <span class="text-base font-extrabold text-slate-800">${property.baths} Bathrooms</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                    <i class="fa-solid fa-vector-square text-xl text-brand-600 mb-2"></i>
+                                    <span class="block text-[11px] font-bold text-slate-400 uppercase">Super Built-up</span>
+                                    <span class="text-base font-extrabold text-slate-800">${property.area}</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                    <i class="fa-solid fa-compass text-xl text-brand-600 mb-2"></i>
+                                    <span class="block text-[11px] font-bold text-slate-400 uppercase">Facing</span>
+                                    <span class="text-base font-extrabold text-slate-800">East / Vastu Compliant</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- About This Property Description -->
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-4">
+                            <h3 class="text-lg font-bold text-slate-900">About ${property.title}</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                ${property.description}
+                            </p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Situated right in the sought-after ${property.locality} micro-market of Pune, this property offers unmatched connectivity to key employment hubs, top international schools, multispecialty hospitals, and upcoming Pune Metro lines.
+                            </p>
+                        </div>
+
+                        <!-- Exclusive Amenities -->
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm">
+                            <h3 class="text-lg font-bold text-slate-900 mb-4">Exclusive Society Amenities</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                ${property.amenities.map(a => `
+                                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2.5 text-xs font-semibold text-slate-800">
+                                        <i class="fa-solid fa-check text-brand-600"></i>
+                                        <span>${a}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Sidebar: Agent Contact & Site Visit Form (4 Cols) -->
+                    <div class="lg:col-span-4 space-y-6">
+                        
+                        <!-- Site Visit Card -->
+                        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-lg sticky top-28 space-y-6">
+                            
+                            <div>
+                                <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Free Service</span>
+                                <h3 class="text-xl font-extrabold text-slate-900 mt-0.5">Schedule Site Walkthrough</h3>
+                                <p class="text-xs text-slate-500 mt-1">Complimentary cab pickup from Senapati Bapat Road or nearby metro.</p>
+                            </div>
+
+                            <form onsubmit="handleSiteVisit(event, '${property.title}')" class="space-y-3">
+                                <div>
+                                    <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Your Full Name</label>
+                                    <input type="text" required placeholder="John Doe" class="w-full text-xs p-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Mobile / WhatsApp (+91)</label>
+                                    <input type="tel" required placeholder="+91 98XXX XXXXX" class="w-full text-xs p-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Preferred Date</label>
+                                    <input type="date" required class="w-full text-xs p-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                                </div>
+                                <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-brand-600/30">
+                                    Confirm Site Inspection
+                                </button>
+                            </form>
+
+                            <!-- Agent Card -->
+                            <div class="pt-6 border-t border-slate-100">
+                                <span class="text-[10px] uppercase font-bold text-slate-400 block mb-3">MahaRERA Registered Advisor</span>
+                                
+                                <div class="flex items-center gap-3">
+                                    <img src="${agent.image}" alt="${agent.name}" class="w-12 h-12 rounded-full object-cover border-2 border-brand-500">
+                                    <div>
+                                        <h4 class="text-sm font-bold text-slate-900">${agent.name}</h4>
+                                        <p class="text-[11px] text-brand-600 font-semibold">${agent.title}</p>
+                                        <p class="text-[10px] text-slate-400">RERA: ${agent.reraId}</p>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-2 mt-4">
+                                    <button onclick="contactAgent('${agent.name}')" class="py-2.5 rounded-xl bg-emerald-50 text-emerald-800 hover:bg-emerald-100 font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                        <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                                    </button>
+                                    <button onclick="callAgent('${agent.phone}')" class="py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                        <i class="fa-solid fa-phone text-xs"></i> Call Agent
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Quick Loan Calculator Banner -->
+                            <div class="p-4 rounded-2xl bg-brand-50 border border-brand-100 text-xs">
+                                <div class="flex items-center justify-between font-bold text-slate-900 mb-1">
+                                    <span>Home Loan Estimator</span>
+                                    <span class="text-brand-600">From 8.40%</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 mb-3">Calculate exact monthly installments for this property with Pune bank offers.</p>
+                                <a href="emi-calculator.html" class="block text-center py-2 rounded-xl bg-white text-brand-700 font-bold border border-brand-200 hover:bg-brand-600 hover:text-white transition-colors">
+                                    Open EMI Calculator →
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            `;
+
+            // Populate Similar Properties
+            const similar = puneProperties.filter(p => p.id !== property.id).slice(0, 3);
+            const simGrid = document.getElementById('similarPropertiesGrid');
+            if (simGrid) {
+                simGrid.innerHTML = similar.map(item => createPropertyCard(item)).join('');
+            }
+        });
+    </script>
+</body>
+</html>

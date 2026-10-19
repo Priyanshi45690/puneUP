@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us & Support Helpdesk | PuneUP Real Estate</title>
+    <meta name="description" content="Reach the PuneUP corporate headquarters on Senapati Bapat Road. Call, WhatsApp or visit our Baner & Kharadi branch offices.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            emerald: '#27ae60',
+                            dark: '#0f172a',
+                            navy: '#0f172a',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="../index.html" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-house-chimney text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Pune<span class="text-brand-600">UP</span></span>
+                        <span class="block text-[10px] tracking-wider uppercase font-semibold text-slate-400 -mt-1">Real Estate Hub</span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+                    <a href="../index.html" class="hover:text-brand-600 transition-colors">Home</a>
+                    <a href="properties.html" class="hover:text-brand-600 transition-colors">Properties</a>
+                    <a href="localities.html" class="hover:text-brand-600 transition-colors">Pune Localities</a>
+                    <a href="agents.html" class="hover:text-brand-600 transition-colors">Agents</a>
+                    <a href="emi-calculator.html" class="hover:text-brand-600 transition-colors">EMI Calc</a>
+                    <a href="pricing.html" class="hover:text-brand-600 transition-colors">Packages</a>
+                    <a href="contact.html" class="text-brand-600 transition-colors">Helpdesk</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="wishlistBtn" class="relative p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-brand-600 hover:border-brand-500 transition-colors">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlistBadge" class="absolute -top-1 -right-1 bg-brand-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+                    </button>
+                    <a href="post-property.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-md shadow-brand-600/20 active:scale-95 transition-all">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <span>Post Property</span>
+                    </a>
+                    <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-600">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3">
+            <a href="../index.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Home</a>
+            <a href="properties.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Properties</a>
+            <a href="localities.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Pune Localities</a>
+            <a href="agents.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Agents</a>
+            <a href="emi-calculator.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">EMI Calculator</a>
+            <a href="pricing.html" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Packages</a>
+            <a href="contact.html" class="block text-sm font-semibold text-brand-600 py-1">Helpdesk</a>
+        </div>
+    </header>
+
+    <main class="py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Breadcrumbs -->
+            <nav class="flex text-xs text-slate-500 mb-6 gap-2 items-center">
+                <a href="../index.html" class="hover:text-brand-600">Home</a>
+                <span>/</span>
+                <span class="text-slate-900 font-semibold">Helpdesk & Contact</span>
+            </nav>
+
+            <!-- Page Title -->
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs uppercase font-bold text-brand-600 tracking-wider">Senapati Bapat Road Desk</span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-1">Contact PuneUP Helpdesk</h1>
+                <p class="text-sm sm:text-base text-slate-500 mt-2">Have questions about PMC property tax, ready reckoner rates, site visits, or listing verification? Our local Pune advisors are on standby.</p>
+            </div>
+
+            <!-- Contact Grid: Form + Office Locations -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
+                
+                <!-- Left: Form (7 cols) -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-md">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Send an Official Inquiry</h3>
+                    <p class="text-xs text-slate-500 mb-6">We respond to phone and WhatsApp inquiries within 15 minutes during standard office hours.</p>
+
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Full Name</label>
+                                <input type="text" required placeholder="e.g. Rahul Sharma" class="w-full text-xs p-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+                                <input type="email" required placeholder="name@example.com" class="w-full text-xs p-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone / WhatsApp Number</label>
+                                <input type="tel" required placeholder="+91 98XXX XXXXX" class="w-full text-xs p-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Inquiry Purpose</label>
+                                <select required class="w-full text-xs p-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500 font-semibold text-slate-700">
+                                    <option value="buy">Buying Property in Pune</option>
+                                    <option value="rent">Renting an Apartment</option>
+                                    <option value="sell">Selling / Landlord Listing</option>
+                                    <option value="loan">Home Loan & EMI Assistance</option>
+                                    <option value="legal">MahaRERA Paperwork Verification</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Preferred Pune Locality</label>
+                            <input type="text" placeholder="e.g. Baner, Koregaon Park, Kharadi, Hinjawadi..." class="w-full text-xs p-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Message or Requirements</label>
+                            <textarea rows="4" required placeholder="Provide details regarding your budget, preferred configuration (2 BHK, 3 BHK), or site visit schedule..." class="w-full text-xs p-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-brand-600/30">
+                            Request Immediate Pune Callback
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right: Office Cards (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Head Office -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-sm space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-building-flag"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-slate-900">Corporate Headquarters</h4>
+                                <span class="text-xs text-brand-600 font-semibold">Senapati Bapat Road, Pune</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            ICC Trade Towers, 8th Floor, Senapati Bapat Road, Near JW Marriott, Shivajinagar, Pune, Maharashtra 411016
+                        </p>
+
+                        <div class="space-y-2 pt-2 border-t border-slate-100 text-xs">
+                            <div class="flex items-center gap-2 text-slate-600">
+                                <i class="fa-solid fa-phone text-brand-600 w-4"></i>
+                                <span class="font-semibold">+91 20 6790 4400</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-600">
+                                <i class="fa-brands fa-whatsapp text-brand-600 w-4"></i>
+                                <span class="font-semibold">+91 98230 45210 (24x7 WhatsApp Desk)</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-600">
+                                <i class="fa-regular fa-envelope text-brand-600 w-4"></i>
+                                <span>support@puneup.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Branch 1: Kharadi Hub -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">East Pune Hub (Kharadi)</h4>
+                                <p class="text-[11px] text-slate-400">EON Free Zone Phase 1, Kharadi, Pune 411014</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Branch 2: Baner Hub -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">West Pune Hub (Baner)</h4>
+                                <p class="text-[11px] text-slate-400">Balewadi High Street Link Road, Baner, Pune 411045</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Working Hours -->
+                    <div class="p-5 rounded-3xl bg-slate-900 text-white text-xs space-y-2">
+                        <span class="text-[10px] uppercase font-bold text-brand-400 tracking-wider">Office Hours</span>
+                        <div class="flex justify-between">
+                            <span>Monday - Saturday:</span>
+                            <span class="font-bold">9:00 AM - 8:00 PM IST</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span>Sunday Site Inspections:</span>
+                            <span class="font-bold text-white">10:00 AM - 6:00 PM</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-950 text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-house-chimney text-xs"></i>
+                    </div>
+                    <span class="text-lg font-extrabold text-white">Pune<span class="text-brand-500">UP</span></span>
+                </div>
+                <p class="text-slate-500 text-xs">© 2026 PuneUP Real Estate Ltd. MahaRERA Compliant. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700 max-w-sm text-xs pointer-events-none">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-brand-500 text-base"></i>
+        <span id="toastMessage" class="font-medium">Notification message</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../JS/data.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>
